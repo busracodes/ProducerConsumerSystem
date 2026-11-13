@@ -33,6 +33,38 @@ A console implementation of the classic Producer–Consumer problem using semaph
 
 - JDK 11 or newer (check with `java -version` and `javac -version`)
 
+## Dashboard
+
+`Dashboard.java` shows a live ASCII view of the system in the terminal. It updates every time the producer or consumer does something.
+
+It shows:
+- **Buffer:** bar with current size/capacity, plus `FULL` or `EMPTY` when needed
+- **Producer / Consumer:** current status (producing, waiting, processing, done) and a progress bar
+- **Recent events:** last 6 actions, with the thread names
+
+All prints go through one `synchronized` object, so lines never come out of order.
+
+Run it in a real terminal (cmd, PowerShell, Terminal) to get the live refresh. In an IDE console it prints a new block on each update instead.
+
+```
+==============================================
+        PRODUCER - CONSUMER DASHBOARD
+==============================================
+ BUFFER    [###--] 3/5
+----------------------------------------------
+ PRODUCER  PRODUCING item 7
+   progress [==============      ] 7/10
+----------------------------------------------
+ CONSUMER  PROCESSING item 4
+   progress [========            ] 4/10
+----------------------------------------------
+ RECENT EVENTS
+   Producer produced item 6
+   Consumer consumed item 4
+==============================================
+```
+
+
 ## Compile
 
 From the project folder:
