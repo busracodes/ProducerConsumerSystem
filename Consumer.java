@@ -1,4 +1,4 @@
- package ProducerConsumerSystem;
+package ProducerConsumerSystem;
 
 public class Consumer implements Runnable {
 
